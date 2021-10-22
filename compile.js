@@ -20,8 +20,7 @@ const input = {
       },
     },
   };
-
-// module.exports = solc.compile(source, 1).contracts[":Lottery"];
+// console.log(JSON.parse(solc.compile(JSON.stringify(input))).contracts);
 module.exports = JSON.parse(solc.compile(JSON.stringify(input))).contracts[
     'Lottery.sol'
   ].Lottery;

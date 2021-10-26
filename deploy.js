@@ -1,11 +1,11 @@
-const HDWalletProvider = require("truffle-hdwallet-provider");
+const HDWalletProvider = require("@truffle/hdwallet-provider");
 const Web3 = require("web3");
 const { interface, bytecode } = require("./compile");
 
 const mnemonic = '';
 const rinkeby = '';
 
-const provider = new HDWallerProvider(
+const provider = new HDWalletProvider(
     mnemonic,
     rinkeby
 );
@@ -21,6 +21,7 @@ const deploy = async () => {
     .deploy({ data: bytecode })
     .send({ gas: '1000000', gasPrice: '5000000000', from: accounts[0] });
 
+  console.log(interface);
   console.log("Contract deployed to", result.options.address);
 };
 deploy();
